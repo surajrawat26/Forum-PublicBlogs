@@ -1,0 +1,43 @@
+<!-- <%- include("partials/nav"); -%>
+
+<%- include("partials/DashComp"); -%>
+
+ <%let arr = []%>
+ <%let unique = []%>
+ <%Tags.forEach((type)=>{%>
+    <%arr.push(type.postType)%>
+    <%arr.forEach((index)=>{%>
+       <% if(!unique.includes(index)){%>
+            <%unique.push(index)%>
+            
+          
+    <%}%>
+    <%})%>
+
+    
+ <%})%>
+
+ <div class="container" id="myDIV">
+     <div class="jumbotron jumbotron-fluid post-box" >
+         <div style="margin-left: 2%; margin-right: 2%;">
+              
+            <%unique.forEach((tag)=>{%>
+            <%console.log(tag)%>
+            <span style="cursor:pointer;padding:1%;border-radius:20px;font-weight:300;font-size: .8rem;background-color:gainsboro;"
+                onclick="window.location.href='/tagPosts/<%=tag%>'"><%=tag%></span>
+            <% })%>
+
+         </div>
+     
+
+
+
+
+     </div>
+ </div>
+  
+   
+ 
+
+
+<%- include("partials/footer"); -%> -->

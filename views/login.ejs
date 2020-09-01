@@ -1,0 +1,104 @@
+<%- include("partials/nav"); -%>
+
+<div id="login" style="z-index: 0;">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 loginImage">
+        <img src="images/Study.svg" alt="" style="width: 100%; height: auto;" />
+      </div>
+      <div class="col-lg-6 jumbotron jumbotron-fluid Login-box">
+        <div class="container">
+          <h3 class="loginHeading">Login</h3>
+          <p
+            style="
+              margin-left: 8%;
+              font-weight: 300;
+              color: #797777;
+              font-size: 16px;
+            "
+            class="loginPara"
+          >
+            Enter details below to continue
+          </p>
+
+          <%- include("partials/messages"); -%>
+
+          <form class="" action="/login" method="post" class="">
+            <div class="form-group LoginForm w3-container">
+              <label>Email</label>
+              <input
+                type="email"
+                class="form-control"
+                style="padding-bottom: 2%; border-top:none;"
+                name="email"
+                value=""
+              />
+              <label>Password</label>
+              <input
+                type="password"
+                class="form-control w3-input"
+                name="password"
+                value=""
+              />
+
+              <label for="">
+                <a
+                  href="/forgetPassword"
+                  style="
+                    font-weight: 300;
+                    padding-top: 2px;
+                    text-decoration: none;
+                  "
+                  >Forget Password?</a
+                >
+              </label>
+            </div>
+            <button
+              type="submit"
+              name="button"
+              style="margin-left: 8%;"
+              value="Log In"
+              class="btn btn-primary loginBtn"
+            >
+              Login
+            </button>
+            <button
+              type="button"
+              name="button"
+              style="margin-left: 3%; width: 200px;"
+              class="btn btn-primary loginBtn"
+              onclick="window.location.href='/register'"
+            >
+              Create Account
+            </button>
+            <p style="margin-left: 8%; margin-top: 2%; font-weight: 300;">or</p>
+            <button
+              type="button"
+              class="btn btn-danger"
+              onclick="window.location.href='/auth/google'"
+              style="width: 40; height: 40; margin-left: 8%;"
+            >
+              <img src="images/google.png" alt="" />
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              onclick="window.location.href='/auth/facebook'"
+              style="
+                background-color: #3b5998;
+                border-color: #3b5998;
+                width: 40;
+                height: 40;
+                margin-left: 2%;
+              "
+            >
+              <img src="images/fb.png" alt="" />
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include("partials/footer"); -%>

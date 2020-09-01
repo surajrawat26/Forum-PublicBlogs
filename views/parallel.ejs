@@ -1,0 +1,98 @@
+<%- include("partials/nav"); -%>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-6">
+      <img src="images/.svg" alt="" />
+    </div>
+    <div class="col-lg-6">
+      <div class="container">
+        <div class="jumbotron jumbotron-fluid profile-box">
+          <h4 class="loginHeading">User Details</h4>
+          <form action="/parallel" method="POST">
+            <div
+              class="form-group UserD-form"
+              style="margin-left: 8%; margin-right: 8%;"
+            >
+              <label for="">Name:</label>
+              <input type="text" name="Name" class="form-control" />
+              <label for="">Email:</label>
+              <input type="email" name="Email" class="form-control" />
+              <label for="Gender">Gender</label>
+              <select class="custom-select" name="Gender" id="Gender">
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+              </select>
+
+              <label for="">Age</label>
+              <input type="text" name="Age" class="form-control" />
+
+              <label for="">Qualification</label>
+              <input type="text" name="Qualification" class="form-control" />
+              <label for="">Experience</label>
+              <input type="text" name="Experience" class="form-control" />
+              <label for="">Field of Study</label>
+              <input type="text" name="Field" class="form-control" />
+              <label for="">Social links</label>
+
+              <input
+                type="text"
+                name="LinkedIn"
+                placeholder="Linkedin"
+                class="form-control"
+              />
+              <input
+                type="text"
+                name="Facebook"
+                placeholder="Facebook"
+                class="form-control"
+              />
+              <input
+                type="text"
+                name="Twitter"
+                placeholder="Twitter"
+                class="form-control"
+              />
+              <input
+                type="text"
+                name="Instagram"
+                placeholder="Instagram"
+                class="form-control"
+              />
+              <input
+                type="text"
+                name="Youtube"
+                placeholder="Youtube"
+                class="form-control"
+              />
+              <label for="">Other links</label>
+              <input
+                type="text"
+                name="Other"
+                placeholder="Other"
+                class="form-control"
+              />
+              <label for="">Bio</label>
+              <textarea
+                name="Bio"
+                id=""
+                cols="30"
+                rows="10"
+                class="form-control"
+              ></textarea>
+            </div>
+            <button
+              type="submit"
+              class="btn btn-primary"
+              style="margin-left: 8%;"
+            >
+              Done
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include("partials/footer"); -%>

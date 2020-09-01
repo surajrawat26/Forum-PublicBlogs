@@ -1,0 +1,30 @@
+<% if(errorMsg != ""){ %>
+    <div style="margin-left: 8%; margin-right:8%" class="alert alert-danger alert-dismissible fade show"><%=errorMsg%>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button></div>
+<% } %>
+
+<% if(SuccessMsg != ""){ %>
+<div style="margin-left: 8%; margin-right:8%" class="alert alert-success alert-dismissible fade show"><%=SuccessMsg%>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button></div>
+<% } %>
+
+
+
+<% if(error != ""){ %>
+<div style="margin-left: 8%; margin-right:8%" class="alert alert-danger alert-dismissible fade show"><%=error%>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button></div>
+<% } %>
+
+<% if(SuccessPostMsg != ""){ %>
+<div style="margin-left: 8%; margin-right:8%" class="alert alert-success alert-dismissible fade show"><%=SuccessPostMsg%>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button></div>
+<% } %>
+

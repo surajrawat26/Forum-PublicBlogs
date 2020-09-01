@@ -1,0 +1,90 @@
+
+
+
+
+
+
+
+
+<% posts.forEach((post)=>{ %>
+<div class="container">
+<div class="jumbotron jumbotron-fluid" style="border-radius: 28px;background-color:#202040;">
+
+    
+    
+    <div style="margin: 2% 8% 2% 8%;" class="post" >
+         
+       <% function timeAgo(t) {%>
+        
+        
+      <%  const seconds = Math.floor((new Date().getTime()- t) / 1000);%>
+        
+       <% var interval = Math.floor(seconds / 31536000)%>
+        
+       <% if (interval >= 1) { return interval + " years ago"; }%>
+      <%  interval = Math.floor(seconds / 2592000);%>
+        <%if (interval >= 1) {return interval + " months ago"} %>
+        
+        
+       <% interval = Math.floor(seconds / 864000);%>
+        <% if (interval >= 1) { return interval + " days ago"} %>
+       <% interval = Math.floor(seconds / 3600); %>
+        <%if (interval) { return interval + " hours ago"} %>
+        <%interval = Math.floor(seconds / 60)%>
+        <%if (interval >= 1) { return interval + " minutes ago"}%>
+       <% interval = Math.floor(seconds)%>
+       <% if (interval >= 1) {return interval + " seconds ago"}%>
+<%}%>
+     
+       
+        <div class="container " >
+       
+            <div class="jumbotron post-box " >
+               <img src="<%=post.photoPath%>" alt="" style="width: 100% ; height: auto;">
+               <div style="margin-top: 2%;">
+                <a href="/profile/<%=post.user%>" style="text-decoration: none;"><%=post.author%></a>
+               
+                <p style="font-size: .8rem;font-weight:200;" class="p"><%=timeAgo(Math.floor(post.time))%></p>
+               <%post.postType.forEach((tag)=>{%>
+                   
+                   <span id="tags"style="cursor:pointer;padding:1%;border-radius:20px;font-weight:300;font-size: .8rem;" onclick="window.location.href='/tagPosts/<%=tag%>'" >
+                   <%=tag%></span>
+               <%})%>
+               
+               
+                
+                <h3 style="font-weight:700; color:#797777;margin-top:1%;" class="h3"><%= post.title %></h3>
+            
+             <p style="white-space: pre-line; font-weight:300;">
+             <%=post.body.substring(0,270)%>...<a href="Post/<%=post._id%>" style="font-size: .8rem;font-weight:200;margin-bottom:5%;">Read more</a>
+                 
+             </p>  
+
+        
+               </div>
+               
+            </div>
+
+        </div>
+       
+
+        
+
+
+   
+  
+    </div>
+   
+    
+   
+
+
+
+
+
+</div>
+
+</div>
+
+<%})%>
+

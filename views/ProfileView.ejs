@@ -1,0 +1,164 @@
+<%- include("partials/nav"); -%> <%- include("partials/DashComp"); -%>
+
+<div class="container">
+    <div class="jumbotron jumbotron-fluid post-box" style="border-radius: 28px;">
+        <div style="margin-left: 8%;">
+        
+        <div class="row">
+            <div class="col-lg-6">
+               
+            <div style="width: 200px; height : 200px ; border-radius: 50%; box-shadow:azure; display:block;"></div>
+
+            <form action="/upload" method="POST" enctype="multipart/form-data">
+            
+            <input type="file" name="profilePhoto" class="form-control">
+            
+            </form>
+
+            </div>    
+
+         
+
+
+            <div class="col-lg-6">
+            <p style="margin-top:2% ;font-weight:500;color:rgb(78, 13, 13);font-size:0.8rem;">
+                <%=AccountHoldersEmail%></p>
+            <p style="margin-top:2% ;font-weight:500;color:black;font-size:0.8rem;">
+                <%=AccountHoldersName%></p>
+            <p style="margin-top:2% ;font-weight:300;color:black;font-size:0.8rem;">
+                <%=Age%> years old</p>
+            <p style="margin-top:2% ;font-weight:300;color:black;font-size:0.8rem;">
+                <%=Gender%></p>
+            <p style="margin-top:2% ;font-weight:300;color:black;font-size:0.8rem;">
+                <%=Bio%></p>
+            <p style="margin-top:2% ;font-weight:300;color:black;font-size:0.8rem;"> <%=Qualification%></p>
+            <p style="margin-top:2% ;font-weight:300;color:black;font-size:0.8rem;"> <%=Experience%></p>
+            <p style="margin-top:2% ;font-weight:300;color:black;font-size:0.8rem;"> <%=Field%></p>
+          
+                <div class="container" style="margin-bottom: 5%;">
+                    <div class="row">
+                     <div class="col-sm-2">
+                        <a href="<%=Twitter%>">
+                            <img src="/images/tweet.svg" alt="" class="twitter" style="width:30px; height:30px;"></a>
+                     </div>
+                    <div class="col-sm-2">
+                    <a href="<%=facebook%>">
+                        <img src="/images/fb.svg" alt="" class="facebook" style="width:30px; height:30px;"></a>
+                    </div>
+                    <div class="col-sm-2">
+                    <a href="<%=Instagram%>">
+                        <img src="/images/insta.svg" alt="" class="instagram" style="width:30px; height:30px;">
+                    </a>
+                    </div>
+                    <div class="col-sm-2">
+                    
+                    </div>
+                    <div class="col-sm-2">
+                    
+                    </div>
+                    <div class="col-sm-2">
+                    
+                    </div>
+                    
+                    </div>
+                </div>
+        
+        
+        
+        
+        
+        
+            
+            <%if(typeof googleId === "undefined" && typeof facebookId === "undefined"  ){%>
+            <button type="button" class="btn btn-primary" onclick="window.location.href='/VerifyPassword'">Change
+                Password</button>
+        
+            <%}%>
+
+            </div>
+        </div>
+            
+           
+                                  
+    </div>
+    <% myPosts.forEach((post)=>{ %>
+    
+    <div class="container" style="margin-top: 5%;">
+        <div class="jumbotron jumbotron-fluid" style="border-radius:28px;background-color:#202040">
+    
+            <div style="margin-left:5%;margin-right:5%;">
+    
+                <form action="/delete/<%=post._id%>" method="GET">
+    
+                    <% function timeAgo(t) {%>
+    
+    
+                    <%  const seconds = Math.floor((new Date().getTime()- t) / 1000);%>
+    
+                    <% var interval = Math.floor(seconds / 31536000)%>
+    
+                    <% if (interval >= 1) { return interval + " years ago"; }%>
+                    <%  interval = Math.floor(seconds / 2592000);%>
+                    <%if (interval >= 1) {return interval + " months ago"} %>
+    
+    
+                    <% interval = Math.floor(seconds / 864000);%>
+                    <% if (interval >= 1) { return interval + " days ago"} %>
+                    <% interval = Math.floor(seconds / 3600); %>
+                    <%if (interval) { return interval + " hours ago"} %>
+                    <%interval = Math.floor(seconds / 60)%>
+                    <%if (interval >= 1) { return interval + " minutes ago"}%>
+                    <% interval = Math.floor(seconds)%>
+                    <% if (interval >= 1) {return interval + " seconds ago"}%>
+                    <%}%>
+                                                 <div class="container" >
+                                                     <div class="jumbtron post-box" >
+                                                         <div style="margin: 2%; ">
+                                                            <img src="<%=post.photoPath%>" alt="" style="width: 100% ;
+                    height:
+                    auto; margin-top:10%;">
+            </div>
+    
+    
+            <div style="margin: 5% 2% 2% 5%;">
+    
+                <p style="font-size: .8rem;font-weight:200;" class="p"><%=timeAgo(Math.floor(post.time))%></p>
+                <%post.postType.forEach((tag)=>{%>
+    
+                <span id="tags" style="cursor:pointer;padding:1%;border-radius:20px;font-weight:300;font-size: .8rem;"
+                    onclick="window.location.href='/tagPosts/<%=tag%>'">
+                    <%=tag%></span>
+                <%})%>
+                <h4 style="font-weight:900; color:#797777;margin-top:2%;" class="h4"><%=post.title%></h4>
+                <p><%=post.body.substring(0,100)%>...<a href="Post/<%=post._id%>"
+                        style="font-size: .8rem;font-weight:200;">Read
+                        more</a></p>
+    
+                <button type="submit" class="btn btn-primary" style="margin-bottom: 5%;">Delete</button>
+            </div>
+    
+        </div>
+    </div>
+    
+    </form>
+    </div>
+    
+    </div>
+    </div>
+    
+    <% }) %>
+</div>
+
+
+          
+
+        
+
+
+
+
+
+
+
+
+<%- include("partials/footer"); -%>

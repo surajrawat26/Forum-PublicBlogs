@@ -1,0 +1,131 @@
+<%- include("partials/nav"); -%> <%- include("partials/DashComp"); -%>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="container">
+        <div class="jumbotron jumbotron-fluid C-box">
+        <%- include("partials/messages"); -%>
+          <form action="/compose" method="POST" enctype="multipart/form-data">
+            <div class="form-group R-Form">
+            
+              <Label>Category</Label>
+              <select class="custom-select form-control" name="Category" id="Category"   multiple>
+                <option value="Choose" selected>Choose</option>
+                
+                <option value="Agriculture">Agriculture</option>
+                <option value="Animals">Animals</option>
+                <option value="Art">Art</option>
+                <option value="Automobile">Automobile</option>
+                <option value="Biology">Biology</option>
+                <option value="Business">Business</option>
+                <option value="Chemistry">Chemistry</option>
+                <option value="Climate">Climate</option>
+                <option value="Communication">Communication</option>
+                <option value="Computer Science">Computer Science</option>
+                <option value="Cooking">Cooking</option>
+                <option value="Dance">Dance</option>
+                <option value="Design">Design</option>
+                <option value="Dogs">Dogs</option>
+                <option value="Economics">Economics</option>
+                <option value="Education">Education</option>
+                <option value="Environment">Environment</option>
+                <option value="Evolution">Evolution</option>
+                <option value="Exercise">Exercise</option>
+                <option value="Fashion">Fashion</option>
+                <option value="Films">Films</option>
+                <option value="Food">Food</option>
+                <option value="Games">Games</option>
+                <option value="Geography">Geography</option>
+                <option value="Government">Government</option>
+                <option value="Graphic Design">Graphic Design</option>
+                <option value="Happiness">Happiness</option>
+                <option value="History">History</option>
+                <option value="Humanities">Humanities</option>
+                <option value="Health and fitness">Health and fitness</option>
+                <option value="India">India</option>
+                <option value="Intelligence">Intelligence</option>
+                <option value="Internet">Internet</option>
+                <option value="Japan">Japan</option>
+                <option value="Language">Language</option>
+                <option value="Learning">Learning</option>
+                <option value="Logic">Logic</option>
+                <option value="Management">Management</option>
+                <option value="Mathematics">Mathematics</option>
+                <option value="Meditation">Meditation</option>
+                <option value="Memory">Memory</option>
+                <option value="Mind & Body">Mind & Body</option>
+                <option value="Mobile Phones">Mobile Phones</option>
+                <option value="Music">Music</option>
+                <option value="Music Theory">Music Theory</option>
+                <option value="Myths">Myths</option>
+                <option value="Nature">Nature</option>
+                <option value="Personality">Personality</option>
+                <option value="Photography">Photography</option>
+                <option value="Physics">Physics</option>
+                <option value="Plants">Plants</option>
+                <option value="Poetry">Poetry</option>
+                <option value="Pollution">Pollution</option>
+                <option value="Productivity">Productivity</option>
+                <option value="Psyhology">Psyhology</option>
+                <option value="Reading">Reading</option>
+                <option value="Relationships">Relationships</option>
+                <option value="Religion">Religion</option>
+                <option value="Science">Science</option>
+                <option value="Sleep">Sleep</option>
+                <option value="Social Media">Social Media</option>
+                <option value="Sports">Sports</option>
+                <option value="Technology">Technology</option>
+                <option value="Tv and Movies">Tv and Movies</option>
+                <option value="Time Management">Time Management</option>
+                <option value="Travel">Travel</option>
+                <option value="Universe">Universe</option>
+                <option value="Vaccines">Vaccines</option>
+                <option value="Virtual Reality">Virtual Reality</option>
+                <option value="War">War</option>
+                <option value="Water">Water</option>
+                <option value="Weather">Weather</option>
+                <option value="Writing">Writing</option>
+                <option value="Yoga">Yoga</option>
+
+
+
+
+
+
+
+
+              </select>
+              <label for="">Upload</label>
+             
+             <input type="file" name="Photo" class="form-control">
+
+              <label for="">Title</label>
+              <input type="text" name="Ptitle" class="form-control" />
+              <label for="">Body</label>
+              <textarea
+                name="pBody"
+                type = "text"
+                cols="30"
+                rows="10"
+                class="form-control"
+                contenteditable="true"
+              ></textarea>
+             
+            </div>
+
+            <button
+              type="submit"
+              class="btn btn-primary R-btn"
+              style="margin-left: 8%;"
+            >
+              Post
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include("partials/footer"); -%>

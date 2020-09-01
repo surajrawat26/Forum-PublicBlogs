@@ -1,0 +1,136 @@
+<%- include("partials/nav"); -%>
+
+<%- include("partials/DashComp"); -%>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="container">
+                <div class="jumbotron jumbotron-fluid post-box" style="margin-top:5%; background-color:#fff;border-radius: 28px;">
+                    <div class="container">
+                    
+                        <div style="border-radius: 28px; background-color:#202040;" class="jumbotron">
+                            <h3 style="text-align: center; font-weight: 900; color: #fff;">
+                                Profile Posts
+                            </h3>
+                        </div>
+                    </div>
+
+                   <% myPosts.forEach((post)=>{ %>
+
+                    <div class="container">
+                        <div class="jumbotron jumbotron-fluid" style="border-radius:28px;background-color:#202040">
+                            
+                            <div  style="margin-left:5%;margin-right:5%;">
+                            
+                                <form action="/delete/<%=post._id%>" method="GET">
+                               
+                                <% function timeAgo(t) {%>
+                                
+                                
+                                <%  const seconds = Math.floor((new Date().getTime()- t) / 1000);%>
+                                
+                                <% var interval = Math.floor(seconds / 31536000)%>
+                                
+                                <% if (interval >= 1) { return interval + " years ago"; }%>
+                                <%  interval = Math.floor(seconds / 2592000);%>
+                                <%if (interval >= 1) {return interval + " months ago"} %>
+                                
+                                
+                                <% interval = Math.floor(seconds / 864000);%>
+                                <% if (interval >= 1) { return interval + " days ago"} %>
+                                <% interval = Math.floor(seconds / 3600); %>
+                                <%if (interval) { return interval + " hours ago"} %>
+                                <%interval = Math.floor(seconds / 60)%>
+                                <%if (interval >= 1) { return interval + " minutes ago"}%>
+                                <% interval = Math.floor(seconds)%>
+                                <% if (interval >= 1) {return interval + " seconds ago"}%>
+                                <%}%>
+                                     <div class="container" >
+                                         <div class="jumbtron post-box" >
+                                             <div style="margin: 2%; ">
+                                                <img src="<%=post.photoPath%>" alt="" style="width: 100% ; height: auto; margin-top:10%;">
+                                             </div>
+                                            
+                                            
+                                            <div style="margin: 5% 2% 2% 5%;">
+                                                
+                                                <p style="font-size: .8rem;font-weight:200;" class="p"><%=timeAgo(Math.floor(post.time))%></p>
+                                                <%post.postType.forEach((tag)=>{%>
+                                                
+                                                <span id="tags" style="cursor:pointer;padding:1%;border-radius:20px;font-weight:300;font-size: .8rem;"
+                                                    onclick="window.location.href='/tagPosts/<%=tag%>'">
+                                                    <%=tag%></span>
+                                                <%})%>
+                                                <h4 style="font-weight:900; color:#797777;margin-top:2%;" class="h4"><%=post.title%></h4>
+                                                <p><%=post.body.substring(0,100)%>...<a href="Post/<%=post._id%>" style="font-size: .8rem;font-weight:200;">Read
+                                                    more</a></p>
+                                            
+                                            <button type="submit" class="btn btn-primary" style="margin-bottom: 5%;">Delete</button>
+                                            </div>       
+                                            
+                                         </div>
+                                     </div>
+                                
+                             </form>
+                            </div>
+                            
+                        </div>
+                    </div>
+                        
+                   <% }) %>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+
+            <div class="container">
+                <div class="jumbotron jumbotron-fluid profile-box">
+                  
+                    <h4 class="loginHeading">User details</h4>
+                    <%- include("partials/messages"); -%>
+                            <div style="margin-left: 8%;">
+                               
+                                
+                                <p style="margin-top:4% ;font-weight:400;color:#797777;"><label for="" style="font-weight: 600;">Name :</label> <%=AccountHoldersName%></p>
+                                
+                                <p style="margin-top:2% ;font-weight:400;color:#797777;"><label for=""style="font-weight: 600;">Email :</label> <%=AccountHoldersEmail%></p>
+                                <p style="margin-top:2% ;font-weight:400;color:#797777;"><label for=""style="font-weight: 600;">Age :</label> <%=Age%></p>
+                                <p style="margin-top:2% ;font-weight:400;color:#797777;"><label for=""style="font-weight: 600;">Gender :</label> <%=Gender%></p>
+                                <p style="margin-top:2% ;font-weight:400;color:#797777;"><label for=""style="font-weight: 600;">Bio :</label> <%=Bio%></p>
+                                <p style="margin-top:2% ;font-weight:400;color:#797777;"><label for=""style="font-weight: 600;">Qualification :</label> <%=Qualification%></p>
+                                <p style="margin-top:2% ;font-weight:400;color:#797777;"><label for=""style="font-weight: 600;">Experience :</label> <%=Experience%></p>
+                                <p style="margin-top:2% ;font-weight:400;color:#797777;"><label for=""style="font-weight: 600;">Field of Study :</label> <%=Field%></p>
+                                <p style="margin-top:2% ;font-weight:400;color:#797777;"><label for=""style="font-weight: 600;">Facebook :</label> <a href=<%=facebook %> >Facebook</a></p>
+                                <p style="margin-top:2% ;font-weight:400;color:#797777;"><label for=""style="font-weight: 600;">Linked in :</label> <a href=<%=LinkedIn %> >Linkedin</a></p>
+                                <p style="margin-top:2% ;font-weight:400;color:#797777;"><label for=""style="font-weight: 600;">Instagram :</label> <a href=<%=Instagram %> >Instagram</a></p>
+                                <p style="margin-top:2% ;font-weight:400;color:#797777;"><label for=""style="font-weight: 600;">Youtube :</label> <a href=<%=Youtube %> >Youtube</a></p>
+                                <p style="margin-top:2% ;font-weight:400;color:#797777;"><label for=""style="font-weight: 600;">Twitter :</label> <a href=<%=Twitter %> >Twitter</a></p>
+
+
+
+
+
+
+
+                              
+                                <button type="button" class="btn btn-primary" onclick="window.location.href='/Editdetails'">Edit details</button>
+                               <%if(typeof googleId === "undefined" && typeof facebookId === "undefined"  ){%>
+                                <button type="button" class="btn btn-primary" onclick="window.location.href='/VerifyPassword'">Change Password</button>
+                               
+                                <%}%>
+                            </div>
+                </div>
+            </div>
+        
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<%- include("partials/footer"); -%>

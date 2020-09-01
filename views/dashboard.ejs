@@ -1,0 +1,74 @@
+
+
+
+<%- include("partials/nav"); -%> <%- include("partials/DashComp"); -%>
+
+
+
+
+<%let arr = []%>
+<%let unique = []%>
+<%posts.forEach((post)=>{%>
+<%arr.push(post.postType)%>
+<%arr.forEach((index)=>{%>
+<% if(!unique.includes(index)){%>
+<%unique.push(index)%>
+
+
+<%}%>
+    <%})%>
+
+
+<%})%>
+
+<div class="container" style="margin-top: 2%;">
+
+    <div class="container" id="myDIV">
+        <div class="jumbotron jumbotron-fluid post-box">
+            <div style="margin-left: 2%; margin-right: 2%; position: relative;">
+
+
+
+
+
+
+                <%unique.forEach((tag)=>{%>
+
+                <span id="tags" style="cursor:pointer;padding:1%;border-radius:20px;font-weight:300;font-size: .8rem;"
+                    onclick="window.location.href='/tagPosts/<%=tag%>'"><%=tag%></span>
+                <% })%>
+
+            </div>
+
+
+
+
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="container">
+                <div class="jumbotron jumbotron-fluid post-box">
+                    <div class="container">
+
+                        <div style="border-radius: 28px; background-color:#202040;" class="jumbotron">
+                            <h3 style="text-align: center; font-weight: 900; color: #fff;">
+                                Posts
+                            </h3>
+                        </div>
+
+
+                    </div>
+
+
+
+                    <%- include("partials/post"); -%>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include("partials/footer"); -%>
